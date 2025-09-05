@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Madam/Sir! Hope you are well. This is the Exercise4 Project.");
+        Console.WriteLine("Hello Sir! Hope you are well. This is the Exercise4 Project.");
 
 
     {
@@ -30,13 +30,13 @@ class Program
         {
             sum += number;
         }
-
+        // Calculate average
         double average = 0;
         if (numbers.Count > 0)
         {
             average = (double)sum / numbers.Count;
         }
-
+        // Find the largest number
         int max = int.MinValue;
         foreach (int number in numbers)
         {
