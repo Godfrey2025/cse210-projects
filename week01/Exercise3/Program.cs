@@ -6,15 +6,20 @@ class Program
     {
         Console.WriteLine("Hello World! This is the Exercise3 Project.");
 
-        Console.WriteLine("What is the magic number?");
-        int magicNumber = int.Parse(Console.ReadLine());
+        // Create a random number generator
+        Random randomGenerator = new Random();
+        int magicNumber = randomGenerator.Next(1, 101);
+
 
         int userGuess = -1;
+        int userGuessCount = 0;
+
 
         while (userGuess != magicNumber)
         {
             Console.WriteLine("Guess the magic number:");
             userGuess = int.Parse(Console.ReadLine());
+            userGuessCount++;
 
             if (userGuess < magicNumber)
             {
@@ -26,7 +31,7 @@ class Program
             }
             else
             {
-                Console.WriteLine("Congratulations! You guessed the magic number.");
+                Console.WriteLine($"Congratulations! You guessed the magic number. It took you {userGuessCount} guesses");
             }
         }
     }
