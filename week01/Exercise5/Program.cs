@@ -4,51 +4,45 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Exercise5 Project.");
-
-     // Call DisplayWelcome function
+        // Display welcome message
         DisplayWelcome();
 
-        // Call PromptUserName and store the result
+        // Prompt for user's name
         string userName = PromptUserName();
-
-        // Call PromptUserNumber and store the result
         int favoriteNumber = PromptUserNumber();
-
-        // Call SquareNumber to compute the square
         int squaredNumber = SquareNumber(favoriteNumber);
 
-        // Call DisplayResult to show the final message
+        // Display the final result
         DisplayResult(userName, squaredNumber);
     }
 
-    // Function to display welcome message
+    // Displays a welcome message
     static void DisplayWelcome()
     {
-        Console.WriteLine("Welcome to the Program!");
+        Console.WriteLine("Welcome to the program!");
     }
 
-    // Function to prompt for user's name
+    // Prompts the user for their name and returns it
     static string PromptUserName()
     {
         Console.Write("Please enter your name: ");
         return Console.ReadLine();
     }
 
-    // Function to prompt for user's favorite number
+    // Prompts the user for their favorite number and returns it
     static int PromptUserNumber()
     {
         Console.Write("Please enter your favorite number: ");
         return int.Parse(Console.ReadLine());
     }
 
-    // Function to square a number
+    // Returns the square of the given number
     static int SquareNumber(int number)
     {
         return number * number;
     }
 
-    // Function to display the result
+    // Displays the result using the user's name and squared number
     static void DisplayResult(string name, int squaredNumber)
     {
         Console.WriteLine($"{name}, the square of your number is {squaredNumber}");
