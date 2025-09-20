@@ -1,7 +1,7 @@
 public class Word
 {
-    private string _text;
-    private bool _isHidden;
+    private string _text; // The actual word text
+    private bool _isHidden; // Indicates if the word is hidden
 
     public Word(string text)
     {
@@ -9,18 +9,14 @@ public class Word
         _isHidden = false;
     }
 
-    public void Hide()
-    {
-        _isHidden = true;
-    }
+public void Hide() => _isHidden = true;//
 
-    public bool IsHidden()
-    {
-        return _isHidden;
-    }
+    public bool IsHidden => _isHidden;
 
     public string GetDisplayText()
     {
         return _isHidden ? new string('_', _text.Length) : _text;
     }
 }
+
+
