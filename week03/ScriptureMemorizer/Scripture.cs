@@ -11,10 +11,10 @@ public class Scripture
 
     public void HideRandomWords(int count)
     {
-        var rand = new Random();
-        var visibleWords = _words.Where(w => !w.IsHidden).ToList();
+        var rand = new Random(); 
+        var visibleWords = _words.Where(w => !w.IsHidden).ToList();  
 
-        for (int i = 0; i < count && visibleWords.Count > 0; i++)
+        for (int i = 0; i < count && visibleWords.Count > 0; i++)  // Ensure we don't try to hide more words than are visible
         {
             var wordToHide = visibleWords[rand.Next(visibleWords.Count)];
             wordToHide.Hide();
@@ -22,12 +22,12 @@ public class Scripture
         }
     }
 
-    public bool AllWordsHidden() => _words.All(w => w.IsHidden);
+    public bool AllWordsHidden() => _words.All(w => w.IsHidden);  
 
-    public string GetDisplayText()
+    public string GetDisplayText() // Returns the scripture with hidden words as underscores
     {
         string text = string.Join(" ", _words.Select(w => w.GetDisplayText()));
-        return $"{_reference}\n{text}";
+        return $"{_reference}\n{text}";        // Format: "Book Chapter:Verse Text"
     }
 }
 

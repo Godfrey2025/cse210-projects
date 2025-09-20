@@ -9,25 +9,26 @@ class Program
 
     {
         // Create a reference scripture
-        Reference reference = new Reference("Helaman", 5, 12);
-        string text = "And now, my sons, remember, remember that it is upon the rock of our Redeemer, who is Christ, the Son of God, that ye must build your foundation; that when the devil shall send forth his mighty winds, yea, his shafts in the whirlwind, yea, when all his hail and his mighty storm shall beat upon you, it shall have no power over you to drag you down to the gulf of misery and endless wo, because of the rock upon which ye are built, which is a sure foundation, a foundation whereon if men build they cannot fall.";
+        Reference reference = new Reference("Jeremiah", 29, 11);
+        string text = "For I know the plans I have for you,” declares the Lord, “plans to prosper you and not to harm you, plans to give you hope and a future";
         Scripture scripture = new Scripture(reference, text);
 
         while (true)
         {
             Console.Clear();
             Console.WriteLine(scripture.GetDisplayText());
-            if (scripture.AllWordsHidden())
-            {
-                Console.WriteLine("All words are hidden. Well done!");
+
+            if (scripture.AllWordsHidden()) // Check if all words are hidden
+             {
+                Console.WriteLine("All words are hidden. Well done!"); //
                 break;
             }
             Console.WriteLine("\nPress Enter to hide more words or type 'quit' to exit.");
             string input = Console.ReadLine();
             if (input.ToLower() == "quit")
                 break;
-            // Hide 3 random words until all are hidden
-            scripture.HideRandomWords(3);
+            // Hide 1 random word until all are hidden
+            scripture.HideRandomWords(1);
         }
     }
 }
