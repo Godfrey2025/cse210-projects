@@ -61,14 +61,14 @@ class Program
         videos.Add(video1);
 
         // Create Video 2
-        Video video2 = new Video("DIY Home Office Setup", "TechSavvy", 480);
-        video2.AddComment(new Comment("Emma", "Loved the cable management tips."));
-        video2.AddComment(new Comment("Oliver", "Where did you get that desk?"));
-        video2.AddComment(new Comment("Ava", "Super helpful for small spaces."));
+        Video video2 = new Video("Programming with C# for Beginners", "CodeAcademy", 900);
+        video2.AddComment(new Comment("Emma", "Loved the class."));
+        video2.AddComment(new Comment("Oliver", "It was very informative."));
+        video2.AddComment(new Comment("Ava", "Thank you for the clear explanations!"));
         videos.Add(video2);
 
         // Create Video 3
-        Video video3 = new Video("Beginner Yoga Routine", "ZenLife", 600);
+        Video video3 = new Video("Online Yoga Session", "HealthyLiving", 600    );
         video3.AddComment(new Comment("Mason", "Perfect for my morning routine."));
         video3.AddComment(new Comment("Isabella", "So calming and easy to follow."));
         video3.AddComment(new Comment("Lucas", "Please make a part 2!"));
