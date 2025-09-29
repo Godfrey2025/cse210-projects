@@ -1,4 +1,3 @@
-
 public class Product
 {
     private string _name;
@@ -16,11 +15,5 @@ public class Product
 
     public string GetName() => _name;
     public string GetProductId() => _productId;
-    public double GetPrice() => _price;
-    public int GetQuantity() => _quantity;
-
-    public double GetTotalCost()
-    {
-        return _price * _quantity;
-    }
+    public double GetTotalCost() => _price * _quantity;
 }

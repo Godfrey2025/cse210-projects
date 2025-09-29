@@ -1,23 +1,15 @@
 public class Customer
 {
     private string _name;
-    private string _address;
-    private string _email;
+    private Address _address;
 
-    public Customer(string name, string address, string email)
+    public Customer(string name, Address address)
     {
         _name = name;
         _address = address;
-        _email = email;
     }
 
     public string GetName() => _name;
-    public string GetAddress() => _address;
-    public string GetEmail() => _email;
-
-    public bool LivesInUSA()
-    {
-        // Simple check: does the address contain "USA"?
-        return _address.ToUpper().Contains("USA");
-    }
+    public Address GetAddress() => _address;
+    public bool LivesInUSA() => _address.IsInUSA();
 }
