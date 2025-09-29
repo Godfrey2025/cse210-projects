@@ -1,20 +1,26 @@
-class Address
-{
-    public string Street { get; set; }
-    public string City { get; set; }
-    public string State { get; set; }
-    public string ZipCode { get; set; }
 
-    public Address(string street, string city, string state, string zipCode)
+public class Address
+{
+    private string _street;
+    private string _city;
+    private string _state;
+    private string _country;
+
+    public Address(string street, string city, string state, string country)
     {
-        Street = street;
-        City = city;
-        State = state;
-        ZipCode = zipCode;
+        _street = street;
+        _city = city;
+        _state = state;
+        _country = country;
     }
 
-    public override string ToString()
+    public bool IsUSA()
     {
-        return $"{Street}, {City}, {State} {ZipCode}";
+        return _country.ToLower() == "usa";
+    }
+
+    public string GetFullAddress()
+    {
+        return $"{_street}\n{_city}, {_state}\n{_country}";
     }
 }
