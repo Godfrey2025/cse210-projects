@@ -20,9 +20,9 @@ public class ListingActivity : Activity
     {
         Start();
         Random rand = new Random();
-        Console.WriteLine(prompts[rand.Next(prompts.Count)]);
-        Console.WriteLine("Start listing in:");
-        Pause(3);
+    Console.WriteLine(prompts[rand.Next(prompts.Count)]);
+    Console.WriteLine("Start listing in:");
+    Countdown(3);
 
         List<string> items = new List<string>();
         DateTime endTime = DateTime.Now.AddSeconds(duration);

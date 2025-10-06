@@ -23,11 +23,11 @@ class Program
                     break;
                 case "2":
                     ReflectionActivity reflectionActivity = new ReflectionActivity();
-                    reflectionActivity.Start();
+                    reflectionActivity.Run();
                     break;
                 case "3":
                     ListingActivity listingActivity = new ListingActivity();
-                    listingActivity.Start();
+                    listingActivity.Run();
                     break;
                 case "4":
                     Console.WriteLine("Thank you for using the Mindfulness Project. Goodbye!");

@@ -10,7 +10,7 @@ public class BreathingActivity : Activity
 
     public override void Run()
     {
-        Run();
+        Start();
         int elapsed = 0;
         while (elapsed < duration)
         {
