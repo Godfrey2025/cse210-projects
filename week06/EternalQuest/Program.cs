@@ -1,26 +1,29 @@
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         GoalManager manager = new GoalManager();
         bool running = true;
 
         while (running)
         {
-            Console.WriteLine("\nMenu:");
-            Console.WriteLine("1. Create Goal");
-            Console.WriteLine("2. Record Event");
-            Console.WriteLine("3. Show Goals");
+            Console.WriteLine("\nEternal Quest Menu:");
+            Console.WriteLine("1. Create New Goal");
+            Console.WriteLine("2. List Goals");
+            Console.WriteLine("3. Record Event");
             Console.WriteLine("4. Show Score");
-            Console.WriteLine("5. Exit");
-
+            Console.WriteLine("5. Save Goals");
+            Console.WriteLine("6. Load Goals");
+            Console.WriteLine("7. Exit");
+            Console.Write("Choose an option: ");
             string choice = Console.ReadLine();
 
             switch (choice)
             {
                 case "1":
-                    Console.WriteLine("Choose goal type: 1=Simple, 2=Eternal, 3=Checklist");
-                    string type = Console.ReadLine();
+                    Console.Write("Enter goal type (Simple, Eternal, Checklist): ");
+                    string type = Console.ReadLine().ToLower();
+
                     Console.Write("Name: ");
                     string name = Console.ReadLine();
                     Console.Write("Description: ");
@@ -28,36 +31,46 @@ class Program
                     Console.Write("Points: ");
                     int pts = int.Parse(Console.ReadLine());
 
-                    if (type == "1")
+                    if (type == "simple")
                         manager.AddGoal(new SimpleGoal(name, desc, pts));
-                    else if (type == "2")
+                    else if (type == "eternal")
                         manager.AddGoal(new EternalGoal(name, desc, pts));
-                    else if (type == "3")
+                    else if (type == "checklist")
                     {
-                        Console.Write("Target Count: ");
+                        Console.Write("Target count: ");
                         int target = int.Parse(Console.ReadLine());
-                        Console.Write("Bonus: ");
+                        Console.Write("Bonus points: ");
                         int bonus = int.Parse(Console.ReadLine());
                         manager.AddGoal(new ChecklistGoal(name, desc, pts, target, bonus));
                     }
                     break;
 
                 case "2":
-                    manager.DisplayGoals();
-                    Console.Write("Which goal to record? ");
+                    manager.ListGoals();
+                    break;
+
+                case "3":
+                    manager.ListGoals();
+                    Console.Write("Which goal did you complete? ");
                     int index = int.Parse(Console.ReadLine()) - 1;
                     manager.RecordEvent(index);
                     break;
 
-                case "3":
-                    manager.DisplayGoals();
-                    break;
-
                 case "4":
-                    manager.DisplayScore();
+                    Console.WriteLine($"Current Score: {manager.GetScore()}");
                     break;
 
                 case "5":
+                    manager.SaveGoals("goals.txt");
+                    Console.WriteLine("Goals saved.");
+                    break;
+
+                case "6":
+                    manager.LoadGoals("goals.txt");
+                    Console.WriteLine("Goals loaded.");
+                    break;
+
+                case "7":
                     running = false;
                     break;
             }

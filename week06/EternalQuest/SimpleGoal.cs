@@ -1,23 +1,22 @@
 public class SimpleGoal : Goal
 {
-    private bool completed;
+    private bool _completed;
 
     public SimpleGoal(string name, string description, int points)
         : base(name, description, points)
     {
-        completed = false;
+        _completed = false;
     }
 
     public override int RecordEvent()
     {
-        if (!completed)
-        {
-            completed = true;
-            return Points;
-        }
-        return 0;
+        _completed = true;
+        return GetPoints();
     }
 
-    public override string GetStatus() => completed ? "[X]" : "[ ]";
-    public override bool IsComplete() => completed;
+    public override bool IsComplete() => _completed;
+
+    public override string GetStatus() => _completed ? "[X]" : "[ ]";
+
+    public override string Serialize() => $"Simple|{GetName()}|{GetDescription()}|{GetPoints()}|{_completed}";
 }

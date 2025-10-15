@@ -1,27 +1,28 @@
 public class ChecklistGoal : Goal
 {
-    private int targetCount;
-    private int currentCount;
-    private int bonus;
+    private int _targetCount;
+    private int _currentCount;
+    private int _bonus;
 
     public ChecklistGoal(string name, string description, int points, int targetCount, int bonus)
         : base(name, description, points)
     {
-        this.targetCount = targetCount;
-        this.bonus = bonus;
-        currentCount = 0;
+        _targetCount = targetCount;
+        _bonus = bonus;
+        _currentCount = 0;
     }
 
     public override int RecordEvent()
     {
-        if (currentCount < targetCount)
-        {
-            currentCount++;
-            return currentCount == targetCount ? Points + bonus : Points;
-        }
-        return 0;
+        _currentCount++;
+        if (_currentCount == _targetCount)
+            return GetPoints() + _bonus;
+        return GetPoints();
     }
 
-    public override string GetStatus() => $"Completed {currentCount}/{targetCount}";
-    public override bool IsComplete() => currentCount >= targetCount;
+    public override bool IsComplete() => _currentCount >= _targetCount;
+
+    public override string GetStatus() => IsComplete() ? "[X]" : $"[ ] Completed {_currentCount}/{_targetCount}";
+
+    public override string Serialize() => $"Checklist|{GetName()}|{GetDescription()}|{GetPoints()}|{_targetCount}|{_currentCount}|{_bonus}";
 }
